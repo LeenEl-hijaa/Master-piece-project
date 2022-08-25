@@ -52,7 +52,7 @@
         <ul>
           <li><a href="/">Home</a></li>
           <li><a href="/about">About</a></li>
-          <li><a href="/dietpackages">Diet Packages</a></li>
+          <li><a href="/dietpackages">Diet Category</a></li>
           <li><a href="/recipes">Healthy Recipes</a></li>
           <li><a href="/contact">Contact</a></li>
           {{-- <li><a href="login">Login</a></li>

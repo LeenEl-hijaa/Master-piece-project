@@ -18,6 +18,7 @@ class CreateRecipesTable extends Migration
             $table->string('recipes_name');
             $table->string('recipes_image');
             $table->string('recipes_description');
+            $table->string('recipes_ingreadients');
             $table->timestamps();
         });
     }

@@ -30,7 +30,7 @@
             <i class="icon bi bi-envelope flex-shrink-0"></i>
             <div>
               <h3>Email Us</h3>
-              <p>contact@example.com</p>
+              <p>contact@nutricia.com</p>
             </div>
           </div>
         </div><!-- End Info Item -->
@@ -40,7 +40,7 @@
             <i class="icon bi bi-telephone flex-shrink-0"></i>
             <div>
               <h3>Call Us</h3>
-              <p>+1 5589 55488 55</p>
+              <p>+962778091944</p>
             </div>
           </div>
         </div><!-- End Info Item -->
@@ -50,8 +50,8 @@
             <i class="icon bi bi-share flex-shrink-0"></i>
             <div>
               <h3>Opening Hours</h3>
-              <div><strong>Mon-Sat:</strong> 11AM - 23PM;
-                <strong>Sunday:</strong> Closed
+              <div><strong>sat-tus:</strong> 11AM - 23PM;
+                <strong>Friday:</strong> Closed
               </div>
             </div>
           </div>
@@ -59,20 +59,25 @@
 
       </div>
 
-      <form action="forms/contact.php" method="post" role="form" class="php-email-form p-3 p-md-4">
+      <form action="{{ route('contact.store') }}" method="POST" role="form" class="php-email-form p-3 p-md-4">
+        @csrf
         <div class="row">
           <div class="col-xl-6 form-group">
             <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+          
           </div>
           <div class="col-xl-6 form-group">
             <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+           
           </div>
         </div>
         <div class="form-group">
           <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+          
         </div>
         <div class="form-group">
           <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+          
         </div>
         <div class="my-3">
           <div class="loading">Loading</div>

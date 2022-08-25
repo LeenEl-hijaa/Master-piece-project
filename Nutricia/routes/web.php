@@ -4,7 +4,7 @@ use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NutritionistsController;
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RecipeController;
 
 
@@ -43,6 +43,9 @@ Route::get('/about', function () {
 Route::get('/contact', function () {
     return view('contact');
 });
+
+Route::resource('contact', ContactController::class);
+
 Route::get('/dietpackages',[categoryController::class, 'getCategory']);
 Route::get('/nutritionists/{id}',[NutritionistsController::class, 'getNutritionst']);
 
@@ -56,4 +59,14 @@ Auth::routes();
 
 Route::get('/home', [HomeController::class, 'home'])->name('home');
 
+
+Route::get('/blank', function () {
+    return view('/admin/blank');
+    
+});
+
+Route::get('/table', function () {
+    return view('/admin/tables');
+    
+});
 
