@@ -30,11 +30,11 @@ Route::get('/', function () {
 //     return view('index');
 // });
 
-//Route::get('/home1');
-//,[CategoryController::class , 'getCategory']
-// Route::get('/about', function () {
-//     return view('about');
-// });
+Route::get('/home1',[CategoryController::class , 'getCategory']);
+
+Route::get('/about', function () {
+    return view('about');
+});
 
 Route::get('/about', function () {
     return view('about');
@@ -69,4 +69,8 @@ Route::get('/table', function () {
     return view('/admin/tables');
     
 });
+
+
+Route::get('/book', [NutritionistsController::class, 'getBooking']);
+Route::post('book1', [NutritionistsController::class, 'postBooking']);
 
