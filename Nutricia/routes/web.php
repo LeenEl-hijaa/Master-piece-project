@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookingController;
 use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -71,6 +72,6 @@ Route::get('/table', function () {
 });
 
 
-Route::get('/book', [NutritionistsController::class, 'getBooking']);
-Route::post('book1', [NutritionistsController::class, 'postBooking']);
+Route::get('/book', [BookingController::class, 'getBooking']);
+Route::post('book', [BookingController::class, 'postBooking']);
 
