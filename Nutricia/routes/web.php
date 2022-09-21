@@ -75,3 +75,20 @@ Route::get('/table', function () {
 Route::get('/book', [BookingController::class, 'getBooking']);
 Route::post('book', [BookingController::class, 'postBooking']);
 
+
+// Admin Route dashboard
+
+//category table rout
+Route::get('category',[CategoryController::class , 'showCategory']);
+
+//add new category rout
+Route::get('add_category',[CategoryController::class,'form_category']);
+Route::post('add_category',[CategoryController::class,'add_category']);
+
+//update category route
+Route::get('update_category/{id}',[CategoryController::class,'form_category_update']);
+Route::post('update_category',[CategoryController::class,'update_category']);
+
+//delete category route
+
+Route::get('delete_category/{id}',[CategoryController::class,'delete_category']);
