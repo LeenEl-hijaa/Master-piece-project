@@ -70,6 +70,7 @@ Route::get('/table', function () {
     return view('/admin/tables');
     
 });
+Route::get('/category', [CategoryController::class,'showCategory']);
 
 
 Route::get('/book', [BookingController::class, 'getBooking']);

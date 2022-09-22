@@ -62,7 +62,7 @@
               <div class="validate"></div>
             </div>
 
-            <div class="text-center mt-2"><button type="submit">Book Now</button></div>
+            <div class="text-center mt-2"><button class="btn btn-primary btn-round" type="submit">Book Now</button></div>
           </form>
         </div><!-- End Reservation Form -->
 

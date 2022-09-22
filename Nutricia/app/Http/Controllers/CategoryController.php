@@ -13,4 +13,10 @@ class CategoryController extends Controller
         // dd($categoires);
         return view('dietpackages',compact('categoires'));
     }
+    public function showCategory ()
+    {
+       
+        return view('dietpackages',compact('categoires'));
+    }
+    
 }
