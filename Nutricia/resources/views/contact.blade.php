@@ -20,7 +20,7 @@
             <i class="icon bi bi-map flex-shrink-0"></i>
             <div>
               <h3>Our Address</h3>
-              <p>A108 Adam Street, New York, NY 535022</p>
+              <p>Wasfi-al Tal Street,Irbid</p>
             </div>
           </div>
         </div><!-- End Info Item -->

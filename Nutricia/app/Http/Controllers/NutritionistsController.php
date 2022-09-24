@@ -42,4 +42,58 @@ public function postBooking (Request $request)
    return redirect('/');
 
 }
+
+public function showNutritionist(){
+    $ntritionists = Nutritionists::all();//[{},{}]
+    // dd($categoires);
+    return view('admin.nutritionist',compact('ntritionists'));
+}
+
+public function form_nutritionist()
+{
+    return view('admin.add_nutritionist');
+}
+public function add_nutritionist(Request $request)
+    {
+        $nutritionist = new Nutritionists();
+
+        //this code to save the image in folder
+        $request->file('image')->store('public/nutritionist_images');
+
+        $nutritionist->nutritionist_name = $request->name;
+        $nutritionist->nutritionist_image = $request->file('image')->store('storage/nutritionist_images');
+        $nutritionist->nutritionist_description = $request->description;
+        $nutritionist->nutritionist_name = $request->name;
+
+        $nutritionist->save();
+
+        return redirect('add_nutritionist')->with('success','nutritionist has been added successfully');
+    }
+
+    public function form_nutritionist_update($id)
+    {
+        $nutritionist = Nutritionists::find($id);
+        return view('admin.update_nutritionist',compact('nutritionist'));
+    }
+    public function update_nutritionist(Request $request)
+    {
+        $id = $request->id;
+        $nutritionist = Nutritionists::find($id);
+        $nutritionist->nutritionist_name = $request->name;
+        $nutritionist->nutritionist_description = $request->description;
+
+        if($request->file('image')){
+            $request->file('image')->store('public/nutritionist_images');
+            $nutritionist->nutritionist_image = $request->file('image')->store('storage/nutritionist_images');
+        }
+        $nutritionist->save();
+        return redirect('nutritionist');
+    }
+    public function delete_nutritionist($id)
+    {
+        $nutritionist = Nutritionists::find($id);
+        $nutritionist->delete();
+
+        return redirect('nutritionist');
+}
 }

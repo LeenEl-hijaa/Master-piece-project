@@ -70,9 +70,58 @@ Route::get('/table', function () {
     return view('/admin/tables');
     
 });
-Route::get('/category', [CategoryController::class,'showCategory']);
+Route::get('/category', [CategoryController::class,'showCategories']);
 
 
 Route::get('/book', [BookingController::class, 'getBooking']);
 Route::post('book', [BookingController::class, 'postBooking']);
 
+
+// Admin Route dashboard
+
+//category table rout
+Route::get('category',[CategoryController::class , 'showCategory']);
+
+//add new category rout
+Route::get('add_category',[CategoryController::class,'form_category']);
+Route::post('add_category',[CategoryController::class,'add_category']);
+
+//update category route
+Route::get('update_category/{id}',[CategoryController::class,'form_category_update']);
+Route::post('update_category',[CategoryController::class,'update_category']);
+
+//delete category route
+
+Route::get('delete_category/{id}',[CategoryController::class,'delete_category']);
+
+//nutritionist table rout
+Route::get('nutritionist',[NutritionistsController::class , 'showNutritionist']);
+
+
+//add new nutritionist rout
+Route::get('add_nutritionist',[NutritionistsController::class,'form_nutritionist']);
+Route::post('add_nutritionist',[NutritionistsController::class,'add_nutritionist']);
+
+//update nutritionist route
+Route::get('update_nutritionist/{id}',[NutritionistsController::class,'form_nutritionist_update']);
+Route::post('update_nutritionist',[NutritionistsController::class,'update_nutritionist']);
+
+//delete nutritionist route
+
+Route::get('delete_nutritionist/{id}',[NutritionistsController::class,'delete_nutritionist']);
+
+//recipe table rout
+Route::get('recipe',[RecipeController::class , 'showRecipe']);
+
+
+//add new recipe rout
+Route::get('add_recipe',[RecipeController::class,'form_recipe']);
+Route::post('add_recipe',[RecipeController::class,'add_recipe']);
+
+//update recipe route
+Route::get('update_recipe/{id}',[RecipeController::class,'form_recipe_update']);
+Route::post('update_recipe',[RecipeController::class,'update_recipe']);
+
+//delete recipe route
+
+Route::get('delete_recipe/{id}',[RecipeController::class,'delete_recipe']);

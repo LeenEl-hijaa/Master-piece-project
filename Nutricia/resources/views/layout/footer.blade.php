@@ -31,8 +31,8 @@
           <div>
             <h4>Opening Hours</h4>
             <p>
-              <strong>Mon-Sat: 11AM</strong> - 23PM<br>
-              Sunday: Closed
+              <strong>Sat-Thu: 11AM</strong> - 23PM<br>
+              Friday: Closed
             </p>
           </div>
         </div>

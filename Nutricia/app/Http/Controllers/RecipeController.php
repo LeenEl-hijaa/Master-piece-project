@@ -18,28 +18,6 @@ class RecipeController extends Controller
         return view('recipes',compact('recipes'));
         //
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
     /**
      * Display the specified resource.
      *
@@ -53,37 +31,64 @@ class RecipeController extends Controller
         return view('singleRecipe', compact('recipes'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Recipe  $recipe
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Recipe $recipe)
+    public function showRecipes ()
     {
-        //
+       
+        return view('recipe',compact('recipes'));
+    }
+    
+
+    public function showRecipe(){
+        $recipes = Recipe::all();//[{},{}]
+        // dd($recipes);
+        return view('admin.recipe',compact('recipes'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Recipe  $recipe
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Recipe $recipe)
+    public function form_recipe()
     {
-        //
+        return view('admin.add_recipe');
+    }
+    public function add_recipes(Request $request)
+    {
+        $recipes = new Recipe();
+
+        //this code to save the image in folder
+        $request->file('image')->store('public/recipe_images');
+
+        $recipes->recipe_name = $request->name;
+        $recipes->recipe_image = $request->file('image')->store('storage/recipe_images');
+        $recipes->recipe_description = $request->description;
+
+        $recipes->save();
+
+        return redirect('add_recipe')->with('success','Recipe has been added successfully');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Recipe  $recipe
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Recipe $recipe)
+    public function form_recipe_update($id)
     {
-        //
+        $recipes = Recipe::find($id);
+        return view('admin.update_recipe',compact('recipes'));
+    }
+    public function update_recipe(Request $request)
+    {
+        $id = $request->id;
+        $recipes = Recipe::find($id);
+        $recipes->recipe_name = $request->name;
+        $recipes->recipe_description = $request->description;
+
+        if($request->file('image')){
+            $request->file('image')->store('public/recipe_images');
+            $recipes->recipe_image = $request->file('image')->store('storage/recipe_images');
+        }
+        $recipes->save();
+        return redirect('recipe');
+    }
+
+    public function delete_recipe($id)
+    {
+        $recipes = Recipe::find($id);
+        $recipes->delete();
+
+        return redirect('recipe');
     }
 }
